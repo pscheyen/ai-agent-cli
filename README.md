@@ -28,25 +28,29 @@ A beginner-friendly CLI chat agent that uses OpenAI's API. Perfect for learning 
    pip install -r requirements.txt
    ```
 
-3. **Set up your OpenAI API key**
+3. **Set up your OpenAI API key** 🔐
 
-   You have three options:
-
-   **Option A: Environment variable**
+   **Recommended: Environment variable (most secure)**
    ```bash
    export OPENAI_API_KEY="your-api-key-here"
    ```
 
-   **Option B: .env file**
-   Create a `.env` file in the project directory:
-   ```
-   OPENAI_API_KEY=your-api-key-here
+   **For development: .env file**
+   ```bash
+   # Copy the example file
+   cp env_example.txt .env
+   
+   # Edit .env and add your API key
+   nano .env
    ```
 
-   **Option C: Pass directly to the agent**
+   **Direct parameter (for testing only)**
    ```python
    agent = ChatAgent(api_key="your-api-key-here")
    ```
+
+   **🔒 Security Note:** Never commit your API key to version control!
+   The `.gitignore` file is configured to prevent accidental commits of `.env` files.
 
 ## Usage
 
@@ -65,6 +69,7 @@ Once the agent is running, you can use these commands:
 - `/save` - Save conversation to a JSON file
 - `/clear` - Clear conversation history
 - `/history` - Show conversation history
+- `/security` - Show API key security best practices
 - `/quit` or `/exit` - Exit the chat agent
 
 ### Example Session
